@@ -14,12 +14,10 @@ ADD config oci_api_key.pem /root/.oci/
 VOLUME ["/data"]
 WORKDIR /data
 
-RUN mkdir /data/terraform-provider-oci  \
-    && git clone https://github.com/terraform-providers/terraform-provider-oci.git /data/terraform-provider-oci
+#RUN mkdir /data/terraform-provider-oci  \
+#    && git clone https://github.com/terraform-providers/terraform-provider-oci.git /data/terraform-provider-oci
 
-#ADD https://github.com/terraform-providers/terraform-provider-oci.git /data/terraform-provider-oci/
-
-#RUN git clone https://github.com/oracle/oci-ansible-modules.git /data/oci-ansible-modules/ \
-#    && /data/oci-ansible-modules/install.py
+RUN git clone https://github.com/oracle/oci-ansible-modules.git /data/oci-ansible-modules/ \
+    && /data/oci-ansible-modules/install.py
 
 CMD ["/bin/bash"]
