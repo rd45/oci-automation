@@ -5,7 +5,7 @@ This is a starter kit for automation of OCI infrastructure build & config with T
 1. install git and docker if necessary
 2. git clone https://github.com/rdewes/oci-automation.git
 3. cd ./oci-automation
-4. find and update the keys and OCIDs in the config and terraform.tfvars files, as per https://docs.cloud.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm
+4. find and update the keys and OCIDs for your tenancy in the config and terraform.tfvars files, as per https://docs.cloud.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm
 5. docker build -t oci-automation .
 6. docker run --interactive --tty --rm --volume "$PWD":/data oci-automation:latest 
 
