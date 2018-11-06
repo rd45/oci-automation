@@ -15,7 +15,7 @@ There are a bunch of examples in the terraform-provider-oci repo - to try them, 
 
 1. cd /root/terraform-provider-oci/docs/examples/[wherever]
 2. terraform init
-3. terraform plan -var-file=/root/terraform.tfvars
-4. terraform apply -var-file=/root/terraform.tfvars
+3. terraform plan -var-file=/data/Terraform/terraform.tfvars
+4. terraform apply -var-file=/data/Terraform/terraform.tfvars
   
 The more complex examples have readme files that go into more detail. Any of the .tf files can be adapted for different requirements.
