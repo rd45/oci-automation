@@ -5,8 +5,8 @@ This is a starter kit for automation of OCI infrastructure build & config with T
 1. install git and docker if necessary
 2. git clone https://github.com/rdewes/oci-automation.git
 3. cd ./oci-automation
-3. docker build -t oci-automation .
-4. docker run --interactive --tty --rm --volume "$PWD":/data oci-automation:latest 
+4. docker build -t oci-automation .
+5. docker run --interactive --tty --rm --volume "$PWD":/data oci-automation:latest 
 
 You're now at the bash prompt in an OL7 image in a Docker container, which has the OCI Terraform provider and Ansible modules installed & configured, along with a set of samples that show how to build & configure various OCI services.
 
