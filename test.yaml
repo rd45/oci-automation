@@ -1,0 +1,14 @@
+- name : first test playbook
+  connection: local
+  hosts: localhost
+  tasks:
+    - name: Create a VCN
+      oci_vcn:
+        cidr_block: '10.10.0.0/16'
+        compartment_id: 'ocid1.compartment.oc1..aaaaaaaanp5u4sxx5gdj2e62gkmz4otwhze37uaq7gw2j4prridg4pyuzq6q'
+        display_name: my_docker_plus_ansible_vcn01
+        dns_label: dockervcn01
+      register: result
+    - name: dump result
+      debug:
+        msg: '{{ result }}'
