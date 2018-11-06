@@ -1,7 +1,7 @@
 # oci-automation
 starter kit for automating OCI infrastructure build &amp; config
 
-setup steps...
+# setup steps...
 1. install git and docker if necessary
 2. git clone https://github.com/rdewes/oci-automation.git
 3. cd ./oci-automation
