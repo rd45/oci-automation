@@ -1,5 +1,5 @@
 # oci-automation
-Starter kit for automating OCI infrastructure build and config with Terraform and Ansible
+This is a starter kit for automation of OCI infrastructure build & config with Terraform and Ansible
 
 # Setup steps
 1. install git and docker if necessary
@@ -8,9 +8,9 @@ Starter kit for automating OCI infrastructure build and config with Terraform an
 3. docker build -t oci-automation .
 4. docker run --interactive --tty --rm --volume "$PWD":/data oci-automation:latest 
 
-You now have a OL7 image in a Docker container, which has the OCI Terraform provider and Ansible modules installed & configured, along with a set of samples
+You're now at the bash prompt in an OL7 image in a Docker container, which has the OCI Terraform provider and Ansible modules installed & configured, along with a set of samples that show how to build & configure various OCI services.
 
-# using Terraform to automate OCI infrastructure build
+# Using Terraform to automate OCI infrastructure build
 There are a bunch of examples in the terraform-provider-oci repo - to try them, do the following at the bash prompt in the docker container that you just built
 
 1. cd /root/terraform-provider-oci/docs/examples/[wherever]
