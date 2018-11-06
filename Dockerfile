@@ -10,10 +10,9 @@ RUN easy_install pip
 RUN pip uninstall -y cryptography 
 RUN pip install cryptography>=2.1.3 oci
 
-# copy config files from current working directory into /root/
+# copy OCI config files into /root/.oci
 RUN mkdir /root/.oci
-ADD config oci_api_key.pem /root/.oci/
-ADD terraform.tfvars /root/
+ADD ./OCI/config ./OCI/oci_api_key.pem /root/.oci/
 
 # clone OCI git repos containing terraform and ansible tools
 RUN git clone https://github.com/terraform-providers/terraform-provider-oci.git /root/terraform-provider-oci/
