@@ -3,7 +3,7 @@ tenancy_ocid         = "ocid1.tenancy.oc1..aaaaaaaabe6z7dwwq2xjr3rdbagxtjjy2nlg7
 user_ocid            = "ocid1.user.oc1..aaaaaaaa76haua4dqiynnchddrptonlt2vandzltjsw7xmclukhrrvq6pndq"
 compartment_ocid     = "ocid1.compartment.oc1..aaaaaaaanp5u4sxx5gdj2e62gkmz4otwhze37uaq7gw2j4prridg4pyuzq6q"
 fingerprint          = "fc:e7:c5:c8:36:49:a5:2e:de:76:a3:5f:87:31:d6:70"
-private_key_path     = "oci_api_key.pem"
+private_key_path     = "/root/.oci/oci_api_key.pem"
 region               = "eu-frankfurt-1"
 private_key_password = "nopassword"
 
