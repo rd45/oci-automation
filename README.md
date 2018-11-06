@@ -7,3 +7,5 @@ setup steps...
 3. cd ./oci-automation
 3. docker build -t oci-automation .
 4. docker run --interactive --tty --rm --volume "$PWD":/data oci-automation:latest 
+
+you now have a OL7 image that has the OCI Terraform provider and Ansible modules installed & configured, along with a set of samples
