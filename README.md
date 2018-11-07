@@ -26,6 +26,6 @@ The more complex examples have readme files that go into more detail. Any of the
 # Using Ansible for configuration management
 to follow...
 
-*Coming soonish...*
+# *Coming soonish...*
 1. terraform makes an ATP autonomous database & a compute instance (incl. networking etc)
 2. ansible downloads & installs JDK & swingbench onto the compute node, configures sqlnet, runs the setup scripts for OE into the database
