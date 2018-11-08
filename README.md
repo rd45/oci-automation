@@ -34,7 +34,7 @@ So, we can call a single playbook that builds & configures an arbitrary set of O
 
 Following this line of thinking one stage further - we could actually get rid of Terraform entirely, and instead use the [Ansible modules](https://github.com/oracle/oci-ansible-modules/tree/master/docs/modules) that directly address OCI infrastructure & services. Two reasons why I'm not doing that here:
 1. the supplied examples that are given for terraform-provider-oci are much easier (for me) to follow & adapt & re-use than the equivalent for oci-ansible-modules
-2. it's easier (for me) to see how to store/push/pull a bunch of .tf files in a code repository, in a true infrastructure-as-code solution - whereas in an all-Ansible picture, it feels (to me) like your config choices & your deployment code are all mixed together in the playbook - although maybe this is just my imperfect knowledge of Ansible getting in my way
+2. it's easier (for me) to see how to store/push/pull a bunch of .tf files in a code repository, in a true infrastructure-as-code solution, and then build the corresponding services with a very simple Ansible task using the terraform module, with really only one variable (`project_path`) to worry about - whereas in an all-Ansible picture, it feels (to me) like your config choices & your deployment code are all mixed together in the playbook
 
 ### Coming soonish, as a worked example of a multi-step playbook...
 1. terraform makes an ATP autonomous database & a compute instance (incl. networking etc)
