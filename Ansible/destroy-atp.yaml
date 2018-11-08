@@ -1,0 +1,13 @@
+- name : call Terraform to destroy an ATP database
+  connection: local
+  hosts: localhost
+  tasks:
+    - name: un-terraform an atp database
+      terraform:
+        project_path: '/data/Terraform/atp/'
+        variables_file: '/data/Terraform/terraform.tfvars'
+        state: absent
+      register: result
+    - name: dump result
+      debug:
+        msg: '{{ result }}'
