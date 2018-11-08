@@ -4,9 +4,10 @@
   tasks:
     - name: un-terraform an atp database
       terraform:
-        project_path: '/data/Terraform/atp/'
+        force_init:     yes
+        project_path:   '/data/Terraform/atp/'
         variables_file: '/data/Terraform/terraform.tfvars'
-        state: absent
+        state:          absent
       register: result
     - name: dump result
       debug:

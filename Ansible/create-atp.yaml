@@ -4,10 +4,12 @@
   tasks:
     - name: terraform an atp database
       terraform:
-        project_path: '/data/Terraform/atp/'
+        force_init:     yes
+        project_path:   '/data/Terraform/atp/'
         variables_file: '/data/Terraform/terraform.tfvars'
-        state: present
+        state:          present
       register: result
+
     - name: dump result
       debug:
         msg: '{{ result }}'
