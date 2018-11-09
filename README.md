@@ -13,19 +13,19 @@ First thing we'll do is to build a Docker container that has all the tools insta
 You're now at the bash prompt in a containerised OL7 image, which has the OCI Terraform provider and Ansible modules installed & configured, along with a set of samples that show how to build & configure various OCI services.
 
 ## Using Terraform to automate OCI infrastructure build
-There are a bunch of examples in the terraform-provider-oci repo - to try them, do the following at the bash prompt in the container that you just built. We already have a var file at /data/Terraform/terraform.tfvars, so we don't need to source env-vars from the example directory. We can also put the state file in /data/Terraform/, because that makes it easier to re-run Terraform against the same targets after stopping & re-starting the container.
+There are a bunch of examples in the terraform-provider-oci repo, which is cloned into the Docker container during build - to try them, do the following at the bash prompt in the container. There's also a var file that sets access-related variables, at /data/Terraform/terraform.tfvars, so we don't need to source env-vars from the example directory. We can also put the state file in /data/Terraform/, because that makes it easier to re-run Terraform against the same targets after stopping & re-starting the container (plus you get a copy of the state on local storage that you can see from outside the container - it's a JSON file that describes what Terraform has done).
 
 1. `cd /root/terraform-provider-oci/docs/examples/[wherever]`
 2. `terraform init`
 3. `terraform plan --var-file=/data/Terraform/terraform.tfvars --state=/data/Terraform/[filename].tfstate`
 4. `terraform apply --var-file=/data/Terraform/terraform.tfvars --state=/data/Terraform/[filename].tfstate`
   
-The more complex examples have readme files that go into more detail. Any of the .tf files can be adapted for different requirements.
+The more complex examples in terraform-provider-oci have readme files that go into more detail. Any of the .tf files can be adapted for different requirements.
 
 Picking up an example that we'll use later - the .tf files in `/root/terraform-provider-oci/docs/examples/database/atp/` describe an Autonomous Transaction Processing database on OCI that we can create with Terraform. From that directory, we can use the `terraform` commands above to create it. The `variables.tf` file gives an easy way to change configuration details like name, CPU count, storage size, etc.
 
 ## Using Ansible to orchestrate Terraform (and other arbitrary stuff)
-Using Terraform directly (with terraform-provider-oci) is already a good way to create OCI services. But where it starts to get interesting is when we also include Ansible as an orchestration method. Ansible comes with all kinds of modules that let us manage the configuration of hosts & other kinds of entity - we can make a fairly simple YAML-formatted Ansible playbook that describes what to do in what order to what entity (or group of entities), with some basic logic & error-handling & parameterisation built in. Amongst the modules that Ansible ships with is the *terraform* module. Which means that we can have a playbook that executes a set of tasks e.g. as follows...
+Using terraform-provider-oci directly is already a good way to create OCI services. But where it starts to get realistic is when we also include Ansible as an orchestration method. Ansible comes with all kinds of modules that let us manage the configuration of hosts & the other kinds of entity that are inside the OCI services - we can make a fairly simple YAML-formatted Ansible playbook that describes what to do in what order to what entity (or group of entities), with some basic logic & error-handling & parameterisation built in. Amongst the modules that Ansible ships with is the *terraform* module. Which means that we can have a playbook that executes a set of tasks e.g. as follows...
 1. pull some set of .tf files, representing our infrastructure as code, out of source control (e.g. using Ansible's git module)
 2. build some OCI services, based on those .tf files (using Ansible's terraform module)
 3. do whatever post-install config is needed on each of those services (using whatever other Ansible modules are needed)
