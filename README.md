@@ -48,8 +48,9 @@ In principle, we could get rid of Terraform entirely, and instead use the oci-an
 I'm still seeing the oci-ansible-modules stuff as being very useful for any post-deployment configuration change at the OCI service level - an example might be scaling a service up or down in CPU count. Terraform for deployment, Ansible for config.
 
 ### Coming soonish, as a worked example of a multi-step playbook...
-1. terraform makes an ATP autonomous database & a compute instance (incl. networking etc)
-2. ansible downloads & installs JDK & swingbench onto the compute node, configures sqlnet, runs the setup scripts for the OE benchmark into the database
-3. ansible runs a test and captures the output
+1. ansible pulls a bunch of .tf files out of git
+2. terraform makes an ATP autonomous database & a compute instance (incl. networking etc), based on those .tf files
+3. ansible downloads & installs JDK & swingbench onto the compute node, configures sqlnet, runs the setup scripts for the OE benchmark into the database
+4. ansible runs a test and captures the output
 
 boom - automated build & execution of a database performance test environment
