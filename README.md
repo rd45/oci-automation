@@ -49,7 +49,7 @@ I'm still seeing the oci-ansible-modules stuff as being very useful for any post
 
 ### Coming soonish, as a worked example of a multi-step playbook...
 1. terraform makes an ATP autonomous database & a compute instance (incl. networking etc)
-2. ansible downloads & installs JDK & swingbench onto the compute node, configures sqlnet, runs the setup scripts for OE into the database
+2. ansible downloads & installs JDK & swingbench onto the compute node, configures sqlnet, runs the setup scripts for the OE benchmark into the database
 3. ansible runs a test and captures the output
 
 boom - automated build & execution of a database performance test environment
