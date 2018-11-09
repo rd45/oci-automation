@@ -39,13 +39,13 @@ Amongst the modules that Ansible ships with is the [terraform](https://docs.ansi
 2. build some OCI services, based on those .tf files (using Ansible's terraform module)
 3. do whatever post-install config is needed on each of those services (using whatever other Ansible modules are needed)
 
-So, we can call a single playbook that creates & configures an arbitrary set of OCI services, to build a whole fully configured environment. Add Ansible Tower (or equivalent) into the mix, and we can expose the invocation of the playbook as a REST API, that we can call from whatever other tool - and in the payload of which we can pass whatever runtime parameters we need.
+So, we can call a single playbook that creates & configures an arbitrary set of OCI services, to build a whole fully configured environment. Add [Ansible Tower](https://docs.ansible.com/ansible-tower/latest/html/towerapi/browseable.html) (or equivalent) into the mix, and we can expose the invocation of the playbook as a REST API, that we can call from whatever other tool - and in the payload of which we can pass whatever runtime parameters we need.
 
 In principle, we could get rid of Terraform entirely, and instead use the oci-ansible-modules by themselves to address OCI infrastructure & services. Two reasons why I'm not doing that here:
 1. the supplied examples that are given for terraform-provider-oci are much easier (for me) to follow & adapt & re-use than the equivalent for oci-ansible-modules
 2. it's easier (for me) to see how to store/push/pull a bunch of .tf files in a code repository, in a true infrastructure-as-code solution, and then build the corresponding services with a very simple Ansible task using the terraform module, with really only one variable (`project_path`) to worry about - whereas in an all-Ansible picture, it feels (to me) like your config choices & your deployment code are all mixed together in the playbook
 
-I'm still seeing the oci-ansible-modules stuff as being very useful for any post-deployment configuration change at the OCI service level - an example might be scaling a service up or down in CPU count. But, there's still a place for Terraform too.
+I'm still seeing the oci-ansible-modules stuff as being very useful for any post-deployment configuration change at the OCI service level - an example might be scaling a service up or down in CPU count. Terraform for deployment, Ansible for config.
 
 ### Coming soonish, as a worked example of a multi-step playbook...
 1. terraform makes an ATP autonomous database & a compute instance (incl. networking etc)
