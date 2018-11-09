@@ -6,7 +6,7 @@ Building & configuring OCI services is easy, at a small scale - just use the clo
 
 All the OCI services have REST API endpoints that we can use to automate build & config. But, the API specs are complex & it's hard to use them directly - we need some kind of wrapper. In principle, you could write one in bash & call all the APIs with curl. But it would need a lot of coding.
 
-Luckily, there are better tools available. There's a Terraform provider (called [terraform-provider-oci](https://github.com/terraform-providers/terraform-provider-oci)) and a set of custom Ansible modules (called [oci-ansible-modules](https://github.com/oracle/oci-ansible-modules)) that we can use. Both are maintained by Oracle dev. By using them, we can make it much simpler to parameterise & automate our build & config. Plus, Terraform & Ansible are both widely-accepted & well-supported tools that a lot of customers are already using.
+Luckily, there are better tools available. There's a Terraform provider (called [terraform-provider-oci](https://github.com/terraform-providers/terraform-provider-oci)) and a set of custom Ansible modules (called [oci-ansible-modules](https://github.com/oracle/oci-ansible-modules)) that we can use. Both are maintained by Oracle dev. By using them, we can make it much simpler to parameterise & automate our build & config. Plus, Terraform & Ansible are both widely-accepted & well-supported tools that a lot of organisations are already using to build & manage cloud-deployed services.
 
 ## Setup steps
 First thing we'll do is to build a Docker container that has all the tools installed...
