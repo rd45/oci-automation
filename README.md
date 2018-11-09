@@ -1,5 +1,12 @@
 # oci-automation
-This is a starter kit for automation of OCI infrastructure build & config, using Terraform and Ansible
+This is a starter kit for automation of [OCI](https://cloud.oracle.com/cloud-infrastructure) infrastructure build & config, using [Terraform](https://www.terraform.io/) and [Ansible](https://www.ansible.com/).
+
+## Purpose
+Building & configuring OCI services is easy, at a small scale - just use the cloud console UI. But if you need to do it at scale, consistently & repeatably, you need some automation. 
+
+All the OCI services have REST API endpoints that we can use to automate build & config. But, the API specs are complex & it's hard to use them directly - we need some kind of wrapper. 
+
+Luckily, there are tools available. There's a Terraform provider (called [terraform-provider-oci](https://github.com/terraform-providers/terraform-provider-oci)) and a set of custom Ansible modules (called [oci-ansible-modules](https://github.com/oracle/oci-ansible-modules)) that we can use. Both are maintained by Oracle Dev. By using them, we can make it much simpler to parameterise & automate our build & config. Plus, Terraform & Ansible are both widely-accepted & well-supported tools that a lot of customers are already using.
 
 ## Setup steps
 First thing we'll do is to build a Docker container that has all the tools installed...
