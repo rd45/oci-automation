@@ -8,6 +8,7 @@
     v_git_repo_url:      "{{ p_git_repo }}"
     v_git_clone_dest:    "{{ p_clone_dest }}"
     v_db_name:           "{{ p_db_name }}"
+    v_cpu_count:         "{{ p_cpu_count }}"
     
   tasks:
     # get .tf files from git repo
@@ -16,15 +17,9 @@
         v_git_repo:      "{{ v_git_repo_url }}"
         v_clone_dest:    "{{ v_git_clone_dest }}"
 
-    # put the required database name into the variables.tf file
-    #- lineinfile:
-    #    path:            "{{ v_git_clone_dest }}/docs/examples/database/atp/variables.tf"
-    #    regexp:          '^  default = "atpdb1"' 
-    #    line:            '  default = "{{ v_db_name }}"'
-    #    state:           present
-
     # make sure the db admin password has at least one numeric character (or the database creation fails)
-    - lineinfile:
+    - name: ensure db password contains minimum 1 numeric character
+      lineinfile:
         path:            "{{ v_git_clone_dest }}/docs/examples/database/atp/autonomous_database.tf"
         insertafter:     '^resource "random_string" "autonomous_database_admin_password" {'
         line:            '  min_numeric = 1'
@@ -35,6 +30,7 @@
       vars:
         v_tf_location:   "{{ v_git_clone_dest }}/docs/examples/database/atp/"
         v_database_name: "{{ v_db_name }}"
+        v_db_cpu_count:  "{{ v_cpu_count }}"
 
     # create networking
     # create compute node
