@@ -3,7 +3,9 @@
     force_init:      yes
     project_path:   "{{ v_tf_location }}"
     variables_file:  /data/Terraform/terraform.tfvars
-    variables:     '"autonomous_database_db_name": "{{ v_database_name }}"'
+    variables:      '{ 
+                       "autonomous_database_db_name": "{{ v_database_name }}"
+                     }'
     state:           present
   register: v_result
 
