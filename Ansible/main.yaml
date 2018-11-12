@@ -3,7 +3,7 @@
   hosts: localhost
   
   vars:
-    v_git_clone_dest:  /data/Terraform
+    v_git_clone_dest:  /data/Terraform/terraform-provider-oci
     
   tasks:
     # get .tf files from git repo
