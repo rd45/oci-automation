@@ -1,0 +1,12 @@
+# create ATP database & compute node to run a swingbench test
+- name : main
+  hosts: all
+  tasks:
+    # create ATP database
+    - include_tasks: database/create_atp.yaml
+
+    # create networking
+    # create compute node
+    # configure compute node
+    # run swingbench OE benchmark setup
+    # run a test
