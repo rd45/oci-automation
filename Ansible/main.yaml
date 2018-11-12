@@ -1,9 +1,9 @@
 # create ATP database & compute node to run a swingbench test
-- name : main
-  hosts: all
+- name : create ATP database
+  hosts: localhost
   tasks:
-    # create ATP database
-    - include_tasks: database/create_atp.yaml
+    # create database
+    - include_tasks: database/create-atp.yaml
 
     # create networking
     # create compute node
