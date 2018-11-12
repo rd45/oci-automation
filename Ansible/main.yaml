@@ -1,9 +1,15 @@
 # create ATP database & compute node to run a swingbench test
 - name : get the .tf files & make the database
   hosts: localhost
+  
+  vars:
+    v_git_clone_dest:  /data/Terraform
+    
   tasks:
     # get .tf files from git repo
     - include_tasks: git/clone-repo.yaml
+      vars:
+        v_clone_dest: '{{ v_git_clone_dest }}'
 
     # create database
     - include_tasks: database/create-atp.yaml
