@@ -1,10 +1,10 @@
-- name: clone the repo
+- name: cloning the repo into "{{ v_clone_dest }}"
   git:
     # in fact our Docker container already has a clone of this repo at /root/terraform-provider-oci
     # just doing it again here to show how it works in Ansible
-    repo:  https://github.com/terraform-providers/terraform-provider-oci.git
-    dest:  '{{ v_clone_dest }}'
-    clone: yes
+    repo:   https://github.com/terraform-providers/terraform-provider-oci.git
+    dest:  "{{ v_clone_dest }}"
+    clone:  yes
   register: v_result
 
 - name: dump result
