@@ -3,7 +3,8 @@
   hosts: localhost
   
   vars:
-    v_git_clone_dest:  /data/Terraform/terraform-provider-oci
+    v_git_clone_dest:  '{{ p_clone_dest }}'
+    v_db_name:         '{{ p_db_name }}'
     
   tasks:
     # get .tf files from git repo
