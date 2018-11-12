@@ -1,12 +1,12 @@
 - name: clone the repo
   git:
-    # our Docker container already has a clone of this repo at /root/terraform-provider-oci
+    # in fact our Docker container already has a clone of this repo at /root/terraform-provider-oci
     # just doing it again here to show how it works in Ansible
     repo:  https://github.com/terraform-providers/terraform-provider-oci.git
-    dest:  /data/git/terraform-provider-oci
+    dest:  '{{ v_clone_dest }}'
     clone: yes
-  register: result
+  register: v_result
 
 - name: dump result
   debug:
-    msg: '{{ result }}'
+    msg: '{{ v_result }}'
