@@ -1,5 +1,7 @@
 # create ATP database & compute node to run a swingbench test
-- name : get the .tf files & make the database
+#
+# first, the database...
+- name : get some .tf files from git, & make a matching database called "{{ p_db_name }}"
   hosts: localhost
   
   vars:
@@ -11,6 +13,12 @@
     - include_tasks: git/clone-repo.yaml
       vars:
         v_clone_dest:   "{{ v_git_clone_dest }}"
+
+    # put the database name into the variables.tf file
+    - lineinfile
+        path:           '{{ v_git_clone_dest }}/docs/examples/database/atp/variables.tf'
+        regexp:         '^  default = "atpdb1"' 
+        line:           '  default = "{{ v_db_name }}"'
 
     # create database
     - include_tasks: database/create-atp.yaml
