@@ -12,7 +12,11 @@ RUN pip install cryptography>=2.1.3 oci
 
 # copy OCI config files into /root/.oci
 RUN mkdir /root/.oci
-ADD ./OCI/config ./OCI/oci_api_key.pem /root/.oci/
+ADD ./OCI/config ./keys/oci_api_key.pem /root/.oci/
+
+# copy ssh private key to /root/.ssh
+RUN mkdir /root/.ssh
+ADD ./keys/id_rsa /root/.ssh/
 
 # clone OCI git repos containing terraform and ansible tools
 RUN git clone https://github.com/terraform-providers/terraform-provider-oci.git /root/terraform-provider-oci/
