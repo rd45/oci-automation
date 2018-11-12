@@ -7,6 +7,6 @@
     clone:  yes
   register: v_result
 
-- name: dump result
+- name: result of git operation
   debug:
     msg: '{{ v_result }}'
