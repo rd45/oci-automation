@@ -1,6 +1,6 @@
 {
   "p_git_repo":    "https://github.com/terraform-providers/terraform-provider-oci.git"
-  "p_clone_dest":  "/data/Terraform/terraform-provider-oci"
+, "p_clone_dest":  "/data/Terraform/terraform-provider-oci"
 , "p_db_name":     "rich1"
 }
 
