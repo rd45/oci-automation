@@ -5,6 +5,7 @@
     variables_file:  /data/Terraform/terraform.tfvars
     variables:
       autonomous_database_db_name:        "{{ v_database_name }}"
+      autonomous_database_display_name:   "{{ v_database_name }}, created by Ansible & Terraform"
       autonomous_database_cpu_core_count: "{{ v_db_cpu_count }}"
     state:           present
   register: v_result
