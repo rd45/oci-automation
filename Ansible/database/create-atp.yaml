@@ -4,8 +4,8 @@
     project_path:   "{{ v_tf_location }}"
     variables_file:  /data/Terraform/terraform.tfvars
     state:           present
-  register: result
+  register: v_result
 
-- name: dump result
+- name: result of terraform operation
   debug:
-    msg: "{{ result }}"
+    msg: "{{ v_result }}"
