@@ -5,7 +5,7 @@
   hosts: localhost
   
   vars:
-    v_git_repo:         "{{ p_git_repo }}"
+    v_git_repo_url:     "{{ p_git_repo }}"
     v_git_clone_dest:   "{{ p_clone_dest }}"
     v_db_name:          "{{ p_db_name }}"
     
@@ -13,7 +13,7 @@
     # get .tf files from git repo
     - include_tasks: git/clone-repo.yaml
       vars:
-        v_git_repo:     "{{ v_git_repo }}"
+        v_git_repo:     "{{ v_git_repo_url }}"
         v_clone_dest:   "{{ v_git_clone_dest }}"
 
     # put the database name into the variables.tf file
