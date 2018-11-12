@@ -1,4 +1,4 @@
 {
   "p_clone_dest":  "/data/Terraform/terraform-provider-oci"
-  "p_db_name":     "rich1"
+, "p_db_name":     "rich1"
 }
