@@ -4,7 +4,6 @@
   
   vars:
     v_git_clone_dest:   "{{ p_clone_dest }}"
-    v_tf_file_location: "{{ v_git_clone_dest }}/docs/examples/database/atp/"
     v_db_name:          "{{ p_db_name }}"
     
   tasks:
@@ -16,7 +15,7 @@
     # create database
     - include_tasks: database/create-atp.yaml
       vars:
-        v_tf_location:  "{{ v_tf_file_location }}"
+        v_tf_location:  "{{ v_git_clone_dest }}/docs/examples/database/atp/"
 
     # create networking
     # create compute node
