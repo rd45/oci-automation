@@ -16,7 +16,7 @@
 
     # put the database name into the variables.tf file
     - lineinfile
-        path:           '{{ v_git_clone_dest }}/docs/examples/database/atp/variables.tf'
+        path:           "{{ v_git_clone_dest }}/docs/examples/database/atp/variables.tf"
         regexp:         '^  default = "atpdb1"' 
         line:           '  default = "{{ v_db_name }}"'
 
