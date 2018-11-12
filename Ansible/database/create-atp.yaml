@@ -1,11 +1,11 @@
 - name: terraform an atp database
   terraform:
-    force_init:     yes
-    project_path:   '{{ v_tf_location }}'
-    variables_file: /data/Terraform/terraform.tfvars
-    state:          present
+    force_init:      yes
+    project_path:   "{{ v_tf_location }}"
+    variables_file:  /data/Terraform/terraform.tfvars
+    state:           present
   register: result
 
 - name: dump result
   debug:
-    msg: '{{ result }}'
+    msg: "{{ result }}"
