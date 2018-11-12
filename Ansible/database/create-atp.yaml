@@ -1,15 +1,11 @@
-- name : call Terraform to create an ATP database
-  connection: local
-  hosts: localhost
-  tasks:
-    - name: terraform an atp database
-      terraform:
-        force_init:     yes
-        project_path:   '/data/Terraform/atp/'
-        variables_file: '/data/Terraform/terraform.tfvars'
-        state:          present
-      register: result
+- name: terraform an atp database
+  terraform:
+    force_init:     yes
+    project_path:   '/data/Terraform/atp/'
+    variables_file: '/data/Terraform/terraform.tfvars'
+    state:          present
+  register: result
 
-    - name: dump result
-      debug:
-        msg: '{{ result }}'
+- name: dump result
+  debug:
+    msg: '{{ result }}'
