@@ -1,7 +1,10 @@
 # create ATP database & compute node to run a swingbench test
-- name : create ATP database
+- name : get the .tf files & make the database
   hosts: localhost
   tasks:
+    # get .tf files from git repo
+    - include_tasks: git/clone-repo.yaml
+
     # create database
     - include_tasks: database/create-atp.yaml
 
