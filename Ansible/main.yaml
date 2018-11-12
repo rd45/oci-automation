@@ -3,19 +3,19 @@
   hosts: localhost
   
   vars:
-    v_git_clone_dest:  '{{ p_clone_dest }}'
-    v_db_name:         '{{ p_db_name }}'
+    v_git_clone_dest:   {{ p_clone_dest }}
+    v_db_name:          {{ p_db_name }}
     
   tasks:
     # get .tf files from git repo
     - include_tasks: git/clone-repo.yaml
       vars:
-        v_clone_dest: '{{ v_git_clone_dest }}'
+        v_clone_dest:   {{ v_git_clone_dest }}
 
     # create database
     - include_tasks: database/create-atp.yaml
       vars:
-        v_tf_location: '{{ v_git_clone_dest }}'/docs/examples/database/atp/
+        v_tf_location: "{{ v_git_clone_dest }}"/docs/examples/database/atp/
 
     # create networking
     # create compute node
