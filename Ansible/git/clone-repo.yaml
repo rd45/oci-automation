@@ -1,4 +1,4 @@
-- name: cloning the repo into "{{ v_clone_dest }}"
+- name: cloning "{{ v_git_repo }}" into "{{ v_clone_dest }}"
   git:
     # in fact our Docker container already has a clone of this repo at /root/terraform-provider-oci
     # just doing it again here to show how it works in Ansible
