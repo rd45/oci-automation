@@ -2,6 +2,6 @@
   "p_git_repo":    "https://github.com/terraform-providers/terraform-provider-oci.git"
 , "p_clone_dest":  "/data/Terraform/terraform-provider-oci"
 , "p_db_name":     "rich2"
-, "p_cpu_count":    2
+, "p_cpu_count":    4
 }
 
