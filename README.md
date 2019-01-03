@@ -53,4 +53,6 @@ I'm still seeing the oci-ansible-modules stuff as being very useful for any post
 3. ansible downloads & installs JDK & swingbench onto the compute node, configures sqlnet, runs the setup scripts for the OE benchmark into the database
 4. ansible runs a test and captures the output
 
-boom - automated build & execution of a database performance test environment
+run.sh will do all these things... eventually...
+
+when it does - boom, automated build & execution of a database performance test environment
