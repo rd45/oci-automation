@@ -2,7 +2,7 @@ FROM oraclelinux:7-slim
 
 # install necessary RPMs
 RUN yum-config-manager --enable ol7_developer_EPEL  \
-    && yum-config-manager --add-repo=http://yum.oracle.com/repo/OracleLinux/OL7/developer/x86_64
+    && yum-config-manager --add-repo=http://yum.oracle.com/repo/OracleLinux/OL7/developer/x86_64 \
     && yum -y install coreutils python python-setuptools git ansible terraform terraform-provider-oci \
     && rm -rf /var/cache/yum/*
 
