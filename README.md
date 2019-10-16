@@ -11,7 +11,7 @@ Luckily, there are better tools available. There's a Terraform provider (called 
 ## Setup steps
 First thing we'll do is to build a Docker container that has all the tools installed...
 1. install Docker on your machine if necessary
-2. make a local copy of this repo (e.g. `git clone https://github.com/rdewes/oci-automation.git`)
+2. make a local copy of this repo (e.g. `git clone https://github.com/rd45/oci-automation.git`)
 3. `cd ./oci-automation`
 4. find the necessary OCIDs for your tenancy, and update the relevant parameters in the `./OCI/config` and `./Terraform/terraform.tfvars` files. Also create your own API signing key in PEM format at `./OCI/oci_api_key.pem`. All of this is as per [the OCI SDK documentation](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm). If you don't change the OCIDs etc, you'll be working in my tenancy - which is ok within reason, as long as you tidy up afterwards e.g. with `terraform destroy`.
 5. build the Docker container (`docker build -t oci-automation .`)
