@@ -22,7 +22,7 @@ You're now at the bash prompt in a containerised OL7 image, which has the OCI Te
 ## Using Terraform to automate OCI infrastructure build
 There are a bunch of examples in the terraform-provider-oci repo, which is cloned into the Docker container during build - to try them, do the following at the bash prompt in the container. There's also a var file that sets access-related variables, at `/data/Terraform/terraform.tfvars`, so we don't need to source env-vars from the example directory. We can also put the state file in `/data/Terraform/`, because that makes it easier to re-run Terraform against the same targets after stopping & re-starting the container (plus you get a copy of the state on your local storage that you can still see after you stop the container - it's a JSON file that describes what Terraform has done).
 
-1. `cd /root/terraform-provider-oci/docs/examples/[wherever]`
+1. `cd /root/terraform-provider-oci/examples/[wherever]`
 2. `terraform init`
 3. `terraform plan --var-file=/data/Terraform/terraform.tfvars --state=/data/Terraform/[filename].tfstate`
 4. `terraform apply --var-file=/data/Terraform/terraform.tfvars --state=/data/Terraform/[filename].tfstate`
