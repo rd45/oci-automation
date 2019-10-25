@@ -24,8 +24,10 @@ There are a bunch of examples in the terraform-provider-oci repo, which is clone
 
 1. `cd /root/terraform-provider-oci/examples/[wherever]`
 2. `terraform init`
-3. `terraform plan --var-file=/data/Terraform/terraform.tfvars --out=/data/Terraform/[file]`
-4. `terraform apply --var-file=/data/Terraform/terraform.tfvars --state=/data/Terraform/[file].tfstate /data/Terraform/[file]`
+3. `terraform plan --var-file=/data/Terraform/terraform.tfvars --out=/data/Terraform/[plan-file]`
+4. `terraform apply --state=/data/Terraform/[file].tfstate /data/Terraform/[plan-file]`
+5. `terraform show /data/Terraform/[file].tfstate`
+6. `terraform destroy --var-file=/data/Terraform/terraform.tfvars --state=/data/Terraform/[file].tfstate`
   
 Be sure to keep hold of the `/data/Terraform/[file].tfstate` file, because you'll need it when you come to do `terraform destroy`.
 
