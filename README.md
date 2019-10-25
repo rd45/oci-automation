@@ -25,12 +25,10 @@ There are a bunch of examples in the terraform-provider-oci repo, which is clone
 1. `cd /root/terraform-provider-oci/examples/[wherever]`
 2. `terraform init`
 3. `terraform plan --var-file=/data/Terraform/terraform.tfvars --out=/data/Terraform/[plan-file]`
-4. `terraform apply --state=/data/Terraform/[file].tfstate /data/Terraform/[plan-file]`
-5. `terraform show /data/Terraform/[file].tfstate`
-6. `terraform destroy --var-file=/data/Terraform/terraform.tfvars --state=/data/Terraform/[file].tfstate`
+4. `terraform apply --state=/data/Terraform/[state-file] /data/Terraform/[plan-file]`
+5. `terraform show /data/Terraform/[state-file]`
+6. `terraform destroy --var-file=/data/Terraform/terraform.tfvars --state=/data/Terraform/[state-file]`
   
-Be sure to keep hold of the `/data/Terraform/[file].tfstate` file, because you'll need it when you come to do `terraform destroy`.
-
 The more complex examples in terraform-provider-oci have readme files that go into more detail. Any of the .tf files can be adapted for different requirements.
 
 Picking up an example that we'll use later - the .tf files in `/root/terraform-provider-oci/docs/examples/database/atp/` describe an Autonomous Transaction Processing database on OCI that we can create with Terraform. From that directory, we can use the `terraform plan|apply` commands above to create it. The `variables.tf` file gives an easy way to change configuration details like name, CPU count, storage size, etc.
